@@ -14,7 +14,7 @@ const AddAuthor = () => {
     const formSubmit = async (e) => {
         e.preventDefault();
         const response = await authorService.addNewAuthor(formData);
-        if(response.status == 'success'){
+        if(response.status === 'success'){
             alert("Successfully Added!");
             navigate('/author');
         }

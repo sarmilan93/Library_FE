@@ -1,6 +1,6 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import NavBar from './NavBar';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Authors from './pages/author/Authors';
 import Books from './pages/book/Books';
 import NotFoundPage from './pages/NotFoundPage';

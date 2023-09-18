@@ -27,7 +27,7 @@ const BookDetails = () => {
     const [formState, setFormState] = useState(false);
     const [formData, setFormData] = useState(null);
 
-    const currentBookDetails = bookDataState.find(res => res._id == id);
+    const currentBookDetails = bookDataState.find(res => res._id === id);
 
     useEffect(() => {
         const loadBookById = async () => {
@@ -47,10 +47,8 @@ const BookDetails = () => {
             });
         }
 
-        if(currentBookDetails){
-            loadBookById();
-        }
-    }, [])
+        loadBookById();
+    }, [id])
 
     if(!currentBookDetails){
         return <NotFoundPage />
@@ -59,7 +57,7 @@ const BookDetails = () => {
     const formSubmit = async (e) => {
         e.preventDefault();
         const response = await bookService.updateBookById(id, formData);
-        if(response.status == 'success'){
+        if(response.status === 'success'){
             setFormState(false);
             alert("Successfully updated!");
             window.location.reload(true);

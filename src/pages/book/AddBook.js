@@ -26,7 +26,7 @@ const AddBook = () => {
     const formSubmit = async (e) => {
         e.preventDefault();
         const response = await bookService.addNewBook(formData);
-        if(response.status == 'success'){
+        if(response.status === 'success'){
             alert("Successfully Added!");
             navigate('/books');
         }
@@ -38,7 +38,7 @@ const AddBook = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        if(name == 'author'){
+        if(name === 'author'){
             setauthorFormValue(value);
         }
         setFormData({ ...formData, [name]: value });

@@ -25,7 +25,7 @@ const AuthorDetails = () => {
     const [formState, setFormState] = useState(false);
     const [formData, setFormData] = useState(null);
 
-    const currentAuthorDetails = authorDataState.find(res => res._id == id);
+    const currentAuthorDetails = authorDataState.find(res => res._id === id);
 
     useEffect(() => {
         const loadAuthor = async () => {
@@ -38,10 +38,8 @@ const AuthorDetails = () => {
             });
         }
 
-        if(currentAuthorDetails){
-            loadAuthor();
-        }
-    }, []);
+        loadAuthor();
+    }, [id]);
 
     if(!currentAuthorDetails){
         return <NotFoundPage />
@@ -55,7 +53,7 @@ const AuthorDetails = () => {
         e.preventDefault();
         console.log(formData)
         const response = await authorService.updateAuthorById(id, formData);
-        if(response.status == 'success'){
+        if(response.status === 'success'){
             setFormState(false);
             alert("Successfully updated!");
             window.location.reload(true);
