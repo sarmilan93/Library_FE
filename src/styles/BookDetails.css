@@ -1,0 +1,54 @@
+/* .image {
+    text-align: center;
+} */
+
+.parent {
+    text-align: center;
+}
+
+.details {
+    line-height: 1 !important;
+    font-weight: 500 !important;
+    font-size: 2.0rem;
+}
+
+.book-img {
+    border: 4px solid black;
+    padding: 50px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+img {
+    max-width: 100%
+}
+
+.bookimage {
+    padding: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.text {
+    padding-left: 20px;
+    font: italic 10px;
+}
+
+.book-edit-button{
+    background: transparent;
+    color: black;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+}
+
+.update-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
