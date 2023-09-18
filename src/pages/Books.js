@@ -17,14 +17,14 @@ const Books = () => {
     useEffect(() => {
         const loadBooks = async () => {
             const response = await bookService.getBooks();
-            setBookData(response);
+            setBookData(response.data.reverse());
         }
 
         loadBooks(); 
     }, []);
 
     const openDetailsPage = (id) => {
-        dispatch(getBooksReducer(bookData.data));
+        dispatch(getBooksReducer(bookData));
         navigate('/books/' + id);
     }
 
@@ -41,7 +41,7 @@ const Books = () => {
                     <div>Add new book</div>
                 </div>
 
-                {bookData?.data?.map((res) => (
+                {bookData?.map((res) => (
                     <div onClick={() => openDetailsPage(res._id)} key={res._id} className="item">
                         <img src={book} alt='book' />
                         <div>{res.name}</div>
