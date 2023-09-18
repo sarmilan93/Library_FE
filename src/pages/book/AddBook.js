@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import * as authorService from '../services/authorService';
-import * as bookService from '../services/bookService';
+import * as authorService from '../../services/authorService';
+import * as bookService from '../../services/bookService';
+import '../../styles/Common.css';
 
 const AddBook = () => {
     const [formData, setFormData] = useState({
@@ -26,7 +27,7 @@ const AddBook = () => {
         e.preventDefault();
         const response = await bookService.addNewBook(formData);
         if(response.status == 'success'){
-            alert("Successfully updated!");
+            alert("Successfully Added!");
             navigate('/books');
         }
         else {

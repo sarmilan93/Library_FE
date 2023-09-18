@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import '../styles/Books.css';
-import '../styles/Common.css';
-import book from '../assets/book.jpg';
-import add from '../assets/add.jpg';
-import * as bookService from '../services/bookService';
-import { getBooksReducer } from '../redux/bookSlice';
+import '../../styles/Books.css';
+import '../../styles/Common.css';
+import book from '../../assets/book.jpg';
+import add from '../../assets/add.jpg';
+import * as bookService from '../../services/bookService';
+import { getDataReducer } from '../../redux/dataSlice';
 
 const Books = () => {
 
@@ -24,7 +24,7 @@ const Books = () => {
     }, []);
 
     const openDetailsPage = (id) => {
-        dispatch(getBooksReducer(bookData));
+        dispatch(getDataReducer(bookData));
         navigate('/books/' + id);
     }
 

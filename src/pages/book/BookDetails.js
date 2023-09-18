@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import '../styles/Common.css';
-import '../styles/BookDetails.css';
-import book from '../assets/book.jpg';
-import * as bookService from '../services/bookService';
-import * as authorService from '../services/authorService';
-import NotFoundPage from './NotFoundPage';
+import '../../styles/Common.css';
+import '../../styles/BookDetails.css';
+import book from '../../assets/book.jpg';
+import * as bookService from '../../services/bookService';
+import * as authorService from '../../services/authorService';
+import NotFoundPage from '../NotFoundPage';
 
 const BookDetails = () => {
     const { id } = useParams();
-    let bookDataState = useSelector((state) => state.bookform);
+    let bookDataState = useSelector((state) => state.data);
 
     if(bookDataState.length > 0){
         localStorage.setItem("bookDataState", JSON.stringify(bookDataState));
@@ -98,15 +98,15 @@ const BookDetails = () => {
             <h1 className='heading'> Update Book Details</h1>
             <label>
                 Name:
-                <input type="text" name="name" value={formData.name} onChange={handleChange} />
+                <input type="text" name="name" value={formData.name} onChange={handleChange} required />
             </label>
             <label>
                 ISBN:
-                <input type="text" name="isbn" value={formData.isbn} onChange={handleChange} />
+                <input type="text" name="isbn" value={formData.isbn} onChange={handleChange} required />
             </label>
             <label>
                 Author:
-                <select name="author" value={formData.author} onChange={handleChange}>
+                <select name="author" value={formData.author} onChange={handleChange} required>
                     {authorsData?.map((res) => (
                         <option key={res._id} value={res._id}>{res.first_name} {res.last_name}</option>
                     ))}
