@@ -51,7 +51,6 @@ const AuthorDetails = () => {
 
     const formSubmit = async (e) => {
         e.preventDefault();
-        console.log(formData)
         const response = await authorService.updateAuthorById(id, formData);
         if(response.status === 'success'){
             setFormState(false);
